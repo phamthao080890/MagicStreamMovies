@@ -1,0 +1,92 @@
+.register {
+  padding: 24px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.register__card {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 20px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.register__title {
+  margin: 0 0 16px;
+  font-size: 1.5rem;
+}
+
+.register__field { margin-bottom: 12px; }
+
+.register__label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.register__input {
+  width: 100%;
+  padding: 10px 16px 10px 12px; /* extra right padding */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+  box-sizing: border-box;
+}
+
+.register__input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96,165,250,0.35);
+}
+
+.register__error {
+  color: #dc2626;
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+
+.register__success {
+  color: #16a34a;
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+}
+
+.register__submit {
+  width: 100%;
+  padding: 10px 12px;
+  background: #16a34a; /* green */
+  color: #ffffff;
+  border: 1px solid #15803d;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.register__submit:hover { background: #15803d; }
+.register__submit:active { transform: translateY(1px); }
+.register__submit:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
+
+@media (prefers-color-scheme: dark) {
+  .register__card {
+    background: #111827;
+    border-color: #374151;
+  }
+  .register__label { color: #d1d5db; }
+  .register__input { background: #0b1220; border-color: #374151; color: #e5e7eb; }
+}
+
+@media (min-width: 768px) {
+  .register { padding: 32px 20px; }
+  .register__card { padding: 24px 24px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .register__input, .register__submit { transition: none; }
+}

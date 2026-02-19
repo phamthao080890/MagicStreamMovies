@@ -1,0 +1,64 @@
+config:
+  target: "http://localhost:8080"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      name: "Warm up"
+    - duration: 120
+      arrivalRate: 50
+      name: "Normal load"
+    - duration: 120
+      arrivalRate: 100
+      name: "High load"
+    - duration: 60
+      arrivalRate: 10
+      name: "Cool down"
+  processor: "./artillery-processor.js"
+
+scenarios:
+  - name: "Browse Movies"
+    weight: 40
+    flow:
+      - get:
+          url: "/api/movies"
+      - think: 2
+      - get:
+          url: "/api/movies/search?q={{ $randomString() }}"
+      - think: 1
+
+  - name: "Get Movies by Genre"
+    weight: 30
+    flow:
+      - get:
+          url: "/api/movies/genre/{{ genre }}"
+        beforeRequest: "setGenre"
+      - think: 1
+
+  - name: "User Registration and Login"
+    weight: 20
+    flow:
+      - post:
+          url: "/api/auth/register"
+          json:
+            name: "{{ $randomString() }}"
+            email: "{{ $randomString() }}@test.com"
+            password: "TestPass123"
+      - think: 2
+      - post:
+          url: "/api/auth/login"
+          json:
+            email: "test@example.com"
+            password: "password123"
+      - think: 1
+
+  - name: "Browse Users and Favourites"
+    weight: 10
+    flow:
+      - get:
+          url: "/api/users"
+      - think: 1
+      - get:
+          url: "/api/users/{{ userId }}/favourites"
+        beforeRequest: "setUserId"
+      - think: 2
+

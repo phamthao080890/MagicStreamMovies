@@ -1,0 +1,40 @@
+/* Genre filter list styling */
+.genres__list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.genres__btn {
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #f4f4f5; /* neutral background */
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.genres__btn:hover {
+  background: #e5e7eb;
+}
+
+/* Ensure active style wins over :hover with higher specificity */
+.genres__btn.genres__btn--active,
+.genres__btn.genres__btn--active:hover {
+  background: #2563eb; /* blue */
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+.genres__btn:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .genres__btn {
+    transition: none;
+  }
+}

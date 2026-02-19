@@ -1,0 +1,51 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="1020" dy="655" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="s87UGtmXuPF_YkQ5JHty-1" target="s87UGtmXuPF_YkQ5JHty-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-1" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;UI Module&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;GiaoDienMovie&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- GiaoDienMovieDetails&lt;br&gt;-&amp;nbsp;GiaoDienGenre&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;GiaoDienSearch&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- GiaoDienRegister&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- GiaoDienLogin&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- GiaoDienFavorite&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="80" y="40" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-2" value="" style="shape=component;jettyWidth=8;jettyHeight=4;" parent="s87UGtmXuPF_YkQ5JHty-1" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-24" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="s87UGtmXuPF_YkQ5JHty-3" target="s87UGtmXuPF_YkQ5JHty-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-3" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;Business Logic Module&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- MovieController&lt;br&gt;-&amp;nbsp;GenreController&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;UserController&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="80" y="210" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-4" value="" style="shape=component;jettyWidth=8;jettyHeight=4;" parent="s87UGtmXuPF_YkQ5JHty-3" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-24" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="s87UGtmXuPF_YkQ5JHty-5" target="s87UGtmXuPF_YkQ5JHty-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-5" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;Data Access Module&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;MovieRepository&lt;br&gt;-&amp;nbsp;Genre&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Repository&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;Ranking&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Repository&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- UserRepository&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="80" y="320" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-6" value="" style="shape=component;jettyWidth=8;jettyHeight=4;" parent="s87UGtmXuPF_YkQ5JHty-5" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-24" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-7" value="&lt;p style=&quot;margin:0px;margin-top:6px;text-align:center;&quot;&gt;&lt;b&gt;Database&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;- Movie&lt;br&gt;-&amp;nbsp;Genre&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;Ranking&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-&amp;nbsp;User&lt;/p&gt;" style="align=left;overflow=fill;html=1;dropTarget=0;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="80" y="450" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="s87UGtmXuPF_YkQ5JHty-8" value="" style="shape=component;jettyWidth=8;jettyHeight=4;" parent="s87UGtmXuPF_YkQ5JHty-7" vertex="1">
+          <mxGeometry x="1" width="20" height="20" relative="1" as="geometry">
+            <mxPoint x="-24" y="4" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

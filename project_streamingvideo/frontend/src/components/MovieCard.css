@@ -1,0 +1,123 @@
+/* Link resets for consistent styling */
+.movie-card__link {
+  text-decoration: none;
+  color: inherit;
+  display: block; /* ensures link fills grid cell for visible gaps */
+}
+
+/* Card container */
+.movie-card {
+  border: 1px solid #e5e7eb; /* subtle border */
+  border-radius: 12px;
+  padding: 10px 12px 6px; /* slightly wider sides, compact bottom */
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* compact internal spacing */
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* soft base shadow */
+  transition: box-shadow 160ms ease-in-out, transform 160ms ease-in-out, border-color 160ms ease-in-out;
+}
+
+/* Poster aspect ratio: 9:16 with cross-browser support */
+.movie-card__poster {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #eee;
+  /* Prefer modern aspect-ratio */
+  aspect-ratio: 9 / 16;
+}
+
+/* Image fills the ratio box */
+.movie-card__poster > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Fallback for browsers without aspect-ratio */
+@supports not (aspect-ratio: 9 / 16) {
+  .movie-card__poster {
+    position: relative;
+  }
+  .movie-card__poster::before {
+    content: "";
+    display: block;
+    /* 16/9 = 177.777...% height relative to width for 9:16 */
+    padding-top: 177.7778%;
+  }
+  .movie-card__poster > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Title: clamp to max 2 lines, reserve space for consistency */
+.movie-card__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600; /* slightly stronger title */
+  line-height: 1.2; /* tighter line height to reduce vertical space */
+  text-align: center;
+  /* Reserve space for 2 lines to keep card heights uniform (tighter) */
+  min-height: calc(1.2em * 2);
+  color: inherit;
+}
+
+/* Use -webkit-line-clamp where supported for ellipsis */
+@supports (-webkit-line-clamp: 2) {
+  .movie-card__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Fallback: truncate after ~2 lines for non-WebKit browsers */
+@supports not (-webkit-line-clamp: 2) {
+  .movie-card__title {
+    overflow: hidden;
+    max-height: calc(1.2em * 2);
+  }
+}
+
+/* Hover subtle elevation for accessibility feedback */
+.movie-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+}
+
+/* Keyboard focus for accessibility */
+.movie-card:focus-within {
+  outline: 2px solid #93c5fd; /* light blue focus ring */
+  outline-offset: 2px;
+}
+
+/* Reusable grid for movie cards spacing */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  row-gap: 24px; /* vertical spacing */
+  column-gap: 28px; /* larger horizontal spacing */
+  gap: 24px; /* base fallback */
+  grid-gap: 24px; /* legacy Safari fallback */
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .movie-card {
+    transition: none;
+  }
+  .movie-card:hover {
+    transform: none;
+  }
+}

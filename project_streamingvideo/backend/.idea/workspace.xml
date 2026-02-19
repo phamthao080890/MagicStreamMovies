@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e0fe502e-9432-4c62-8226-9b97cf0d65b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/load-tests/QUICKSTART.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/SETUP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/artillery-load-test.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/artillery-processor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/check-readiness.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/k6-load-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/k6-smoke-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/k6-spike-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/k6-stress-test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/monitor-performance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/load-tests/run-load-test.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/ApiLoggingFilterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/StreamingApiApplicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/dto/RegisterRequestTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/models/GenreTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/models/MovieTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/models/RankingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/models/UserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/streaming/api/controllers/MovieControllerWebMvcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/controllers/MovieControllerWebMvcTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/streaming/api/controllers/UserControllerWebMvcTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/streaming/api/controllers/UserControllerWebMvcTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="38jGjeaqdKG9raIdGzWrFdBt2sQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.Local.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/tony/LAB_MovieStreaming/project_streamingvideo/backend"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0fe502e-9432-4c62-8226-9b97cf0d65b4" name="Changes" comment="" />
+      <created>1769305705182</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1769305705182</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>

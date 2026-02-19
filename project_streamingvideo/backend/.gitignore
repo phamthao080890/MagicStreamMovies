@@ -1,0 +1,66 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+/target
+
+### IntelliJ IDEA ###
+.idea/*
+!.idea/workspace.xml
+!.idea/codeStyleSettings.xml
+!.idea/codeStyles/*
+!.idea/runConfigurations/
+!.idea/runConfigurations/*
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+!.elasticbeanstalk/*.template.yml
+
+# Swagger
+templates/swagger.yaml
+
+log/
+
+.DS_Store
+*.swp
+
+# Generated files
+env-build-number.groovy
+
+# OpenClover
+.clover
+
+# Dynamodb local instance cache
+bin/dynamodb/shared-local-instance.db
+
+# Generated reports
+dependency-check-report.html
+
+# AWS Lambdas
+node_modules/
+.vscode
+coverage/
+node_modules_test/
+.env
+
+# Local AWS Secrets
+_compiled/*
