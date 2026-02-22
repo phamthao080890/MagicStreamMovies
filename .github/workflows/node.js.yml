@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: project_streamingvideo/frontend
+        working-directory: ./project_streamingvideo/frontend
 
     strategy:
       matrix:
@@ -28,8 +28,9 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        node-version: '20.x'
+        cache: 'npm' # Or 'yarn' or 'pnpm'
+        cache-dependency-path: './project_streamingvideo/frontend/package-lock.json' # Update this pat
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
