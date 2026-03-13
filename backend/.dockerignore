@@ -1,0 +1,10 @@
+target/
+.git/
+.idea/
+.DS_Store
+load-tests/
+docs/
+json-files/
+*.log
+.env
+
