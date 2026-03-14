@@ -1,24 +1,30 @@
 package com.streaming.api;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoDatabase;
+import com.streaming.api.config.DataSeeder;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class StreamingApiApplicationTest {
 
-    @Test
-    void contextLoads() {
-        // This test ensures the application context loads successfully
-    }
+    // Prevent real MongoClient from dialling Atlas
+    @MockBean
+    MongoClient mongoClient;
+
+    // Prevent MongoConfig from needing a live connection
+    @MockBean
+    MongoDatabase mongoDatabase;
+
+    // Prevent DataSeeder from running on startup (avoids NPE on mock collections)
+    @MockBean
+    DataSeeder dataSeeder;
 
     @Test
-    void mainMethodRuns() {
-        // Run on a random port to avoid collision with a running instance
-        System.setProperty("server.port", "0");
-        assertDoesNotThrow(() -> StreamingApiApplication.main(new String[]{}));
-        System.clearProperty("server.port");
+    void contextLoads() {
+        // Verifies the Spring application context loads successfully without a real DB
     }
 }
 
