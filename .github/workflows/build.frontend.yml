@@ -1,0 +1,34 @@
+name: Frontend CI - Node.js
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "frondend/**"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "frondend/**"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frondend
+
+    strategy:
+      matrix:
+        node-version: [24.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm test
