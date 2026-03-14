@@ -1,0 +1,16 @@
+.search-container {
+    padding: 20px;
+}
+
+.search-error {
+    color: red;
+}
+
+.no-results {
+    /* No specific styles, just a class for the paragraph */
+}
+
+.no-results-highlight {
+    font-weight: bold;
+    color: blue;
+}

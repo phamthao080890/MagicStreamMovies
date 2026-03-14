@@ -4,6 +4,7 @@ jest.mock('react-router-dom', () => ({
   MemoryRouter: ({ children }) => <div>{children}</div>,
   Link: ({ to, children }) => <a href={to}>{children}</a>,
   useLocation: () => ({ pathname: '/' }),
+  useNavigate: () => jest.fn(),
 }), { virtual: true });
 import { MemoryRouter } from 'react-router-dom';
 import Navbar from '../components/Navbar';

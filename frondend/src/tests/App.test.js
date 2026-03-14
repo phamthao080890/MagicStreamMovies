@@ -3,6 +3,17 @@ import { render, screen } from '@testing-library/react';
 import App from '../App';
 import AppJsx from '../App.jsx';
 
+jest.mock('react-router-dom', () => ({
+  BrowserRouter: ({ children }) => <div>{children}</div>,
+  Routes: ({ children }) => <div>{children}</div>,
+  Route: ({ element }) => element,
+  Link: ({ to, children }) => <a href={to}>{children}</a>,
+  useSearchParams: () => [new URLSearchParams()],
+  useLocation: () => ({ pathname: '/' }),
+  useParams: () => ({ id: '1' }),
+  useNavigate: () => jest.fn(),
+}), { virtual: true });
+
 jest.mock('../api/api', () => ({
   API: { 
     get: jest.fn(),

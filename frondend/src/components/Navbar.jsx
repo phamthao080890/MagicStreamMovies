@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getUser } from "../utils/auth"; // importing the auth function
 
 export default function Navbar() {
         const location = useLocation();
+        const navigate = useNavigate();
         const [user, setUser] = useState(getUser());
         const [name, setName] = useState(
             typeof window !== "undefined" ? localStorage.getItem("name") : null
         );
+        const [searchQuery, setSearchQuery] = useState("");
 
         // Update when route changes or when auth changes
         useEffect(() => {
@@ -27,6 +29,14 @@ export default function Navbar() {
             window.addEventListener("app:user-changed", handler);
             return () => window.removeEventListener("app:user-changed", handler);
         }, []);
+
+        const handleSearch = (e) => {
+            e.preventDefault();
+            if (searchQuery.trim()) {
+                navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+                setSearchQuery("");
+            }
+        };
         return (
             <nav style={{
                 display: "flex",
@@ -56,6 +66,36 @@ export default function Navbar() {
                 
                 {/* Right side user section */}
                 <div style={{ display: "flex", gap: "20px", fontSize: "18px", alignItems: "center" }}>
+                        {/* Search box */}
+                        <form onSubmit={handleSearch} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                            <input
+                                type="text"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                placeholder="Tìm kiếm phim..."
+                                style={{
+                                    padding: "5px 10px",
+                                    fontSize: "16px",
+                                    border: "1px solid #ccc",
+                                    borderRadius: "4px",
+                                    width: "200px"
+                                }}
+                            />
+                            <button
+                                type="submit"
+                                style={{
+                                    padding: "5px 10px",
+                                    fontSize: "16px",
+                                    background: "#fff",
+                                    color: "#222",
+                                    border: "1px solid #ccc",
+                                    borderRadius: "4px",
+                                    cursor: "pointer"
+                                }}
+                            >
+                                Tìm
+                            </button>
+                        </form>
                         {user ? (
                             <>
                                 {/* Show Profile initials in a circular outline when logged in */}

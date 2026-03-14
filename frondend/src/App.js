@@ -11,6 +11,7 @@ import Login from "./pages//Login";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Favourites from "./pages/Favourites";
+import Search from "./pages/Search";
 
 export default function App(){
         return (
@@ -25,6 +26,7 @@ export default function App(){
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/favourites" element={<Favourites />} />
+                        <Route path="/search" element={<Search />} />
                     </Routes>
                     <BottomNav />
                 </BrowserRouter>
