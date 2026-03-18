@@ -1,0 +1,13 @@
+com\streaming\api\ApiLoggingFilterTest.class
+com\streaming\api\models\GenreTest.class
+com\streaming\api\StreamingApiApplicationTests.class
+com\streaming\api\StreamingApiApplicationTest.class
+com\streaming\api\dto\RegisterRequestTest.class
+com\streaming\api\controllers\RankingControllerWebMvcTest.class
+com\streaming\api\models\RankingTest.class
+com\streaming\api\controllers\AuthControllerWebMvcTest.class
+com\streaming\api\controllers\GenreControllerWebMvcTest.class
+com\streaming\api\models\MovieTest.class
+com\streaming\api\models\UserTest.class
+com\streaming\api\controllers\MovieControllerWebMvcTest.class
+com\streaming\api\controllers\UserControllerWebMvcTest.class

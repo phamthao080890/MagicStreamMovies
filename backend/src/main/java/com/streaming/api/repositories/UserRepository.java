@@ -49,9 +49,8 @@ public class UserRepository {
             user.setId(doc.getObjectId("_id").toHexString());
         } else {
             collection.replaceOne(
-                Filters.eq("_id", new ObjectId(user.getId())),
-                toDocument(user)
-            );
+                    Filters.eq("_id", new ObjectId(user.getId())),
+                    toDocument(user));
         }
         return user;
     }
@@ -69,8 +68,31 @@ public class UserRepository {
         u.setRole(doc.getString("role"));
         u.setToken(doc.getString("token"));
         u.setRefresh_token(doc.getString("refresh_token"));
-        u.setFavourite_genres(doc.getList("favourite_genres", String.class));
-        u.setFavourite_movies(doc.getList("favourite_movies", String.class));
+        u.setRefresh_token(doc.getString("refresh_token"));
+
+        List<String> parsedGenres = new ArrayList<>();
+        Object genresObj = doc.get("favourite_genres");
+        if (genresObj instanceof List<?> list) {
+            for (Object item : list) {
+                if (item instanceof String s)
+                    parsedGenres.add(s);
+                else if (item instanceof Document d && d.containsKey("genre_name"))
+                    parsedGenres.add(d.getString("genre_name"));
+            }
+        }
+        u.setFavourite_genres(parsedGenres);
+
+        List<String> parsedMovies = new ArrayList<>();
+        Object moviesObj = doc.get("favourite_movies");
+        if (moviesObj instanceof List<?> list) {
+            for (Object item : list) {
+                if (item instanceof String s)
+                    parsedMovies.add(s);
+                else if (item instanceof Document d && d.containsKey("title"))
+                    parsedMovies.add(d.getString("title"));
+            }
+        }
+        u.setFavourite_movies(parsedMovies);
         u.setCreated_at(toLocalDateTime(doc.get("created_at")));
         u.setUpdated_at(toLocalDateTime(doc.get("updated_at")));
         return u;
@@ -78,28 +100,34 @@ public class UserRepository {
 
     private Document toDocument(User u) {
         Document doc = new Document();
-        if (u.getId() != null) doc.append("_id", new ObjectId(u.getId()));
-        doc.append("user_id",          u.getUser_id())
-           .append("first_name",       u.getFirst_name())
-           .append("last_name",        u.getLast_name())
-           .append("email",            u.getEmail())
-           .append("password",         u.getPassword())
-           .append("role",             u.getRole())
-           .append("token",            u.getToken())
-           .append("refresh_token",    u.getRefresh_token())
-           .append("favourite_genres", u.getFavourite_genres())
-           .append("favourite_movies", u.getFavourite_movies())
-           .append("created_at",       toDate(u.getCreated_at()))
-           .append("updated_at",       toDate(u.getUpdated_at()));
+        if (u.getId() != null)
+            doc.append("_id", new ObjectId(u.getId()));
+        doc.append("user_id", u.getUser_id())
+                .append("first_name", u.getFirst_name())
+                .append("last_name", u.getLast_name())
+                .append("email", u.getEmail())
+                .append("password", u.getPassword())
+                .append("role", u.getRole())
+                .append("token", u.getToken())
+                .append("refresh_token", u.getRefresh_token())
+                .append("favourite_genres", u.getFavourite_genres())
+                .append("favourite_movies", u.getFavourite_movies())
+                .append("created_at", toDate(u.getCreated_at()))
+                .append("updated_at", toDate(u.getUpdated_at()));
         return doc;
     }
 
     // ── date conversion helpers ───────────────────────────────────────────────
 
-    /** Converts whatever BSON returns (java.util.Date or LocalDateTime) safely to LocalDateTime. */
+    /**
+     * Converts whatever BSON returns (java.util.Date or LocalDateTime) safely to
+     * LocalDateTime.
+     */
     private LocalDateTime toLocalDateTime(Object value) {
-        if (value == null) return null;
-        if (value instanceof LocalDateTime ldt) return ldt;
+        if (value == null)
+            return null;
+        if (value instanceof LocalDateTime ldt)
+            return ldt;
         if (value instanceof Date d)
             return d.toInstant().atZone(ZoneId.of("UTC")).toLocalDateTime();
         return null;
@@ -107,7 +135,8 @@ public class UserRepository {
 
     /** Converts LocalDateTime to java.util.Date for BSON storage. */
     private Date toDate(LocalDateTime ldt) {
-        if (ldt == null) return null;
+        if (ldt == null)
+            return null;
         return Date.from(ldt.atZone(ZoneId.of("UTC")).toInstant());
     }
 }

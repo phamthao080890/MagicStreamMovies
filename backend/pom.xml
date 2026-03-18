@@ -56,6 +56,13 @@
       <artifactId>spring-security-crypto</artifactId>
     </dependency>
 
+    <!-- Dotenv for Spring Boot (.env file support) -->
+    <dependency>
+      <groupId>me.paulschwarz</groupId>
+      <artifactId>spring-dotenv</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
     <!-- Test dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>

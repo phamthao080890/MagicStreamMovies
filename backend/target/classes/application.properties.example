@@ -1,0 +1,7 @@
+spring.application.name=StreamingAPI
+
+server.port=8080
+
+# Replace with your actual MongoDB connection string
+spring.data.mongodb.uri=mongodb+srv://<username>:<password>@<cluster-url>/?appName=<appName>
+spring.data.mongodb.database=streamingmoviedb
