@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "frondend/**"
+      - "frontend/**"
   pull_request:
     branches: [ "main" ]
     paths:
-      - "frondend/**"
+      - "frontend/**"
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./frondend
+        working-directory: ./frontend
 
     strategy:
       matrix:
