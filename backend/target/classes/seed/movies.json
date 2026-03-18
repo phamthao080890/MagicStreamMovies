@@ -1,0 +1,297 @@
+[
+  {
+    "admin_review": "I loved the acting in this movie. It was absolutely sublime!",
+    "genre": [
+      {
+        "genre_id": 2,
+        "genre_name": "Drama"
+      }
+    ],
+    "imdb_id": "tt0111161",
+    "poster_path": "https://image.tmdb.org/t/p/w300/2GgerXCbCMgvt2kLwWEmJWCSG65.jpg",
+    "ranking": {
+      "ranking_name": "Excellent",
+      "ranking_value": 1
+    },
+    "title": "The Shawshank Redemption",
+    "youtube_id": "PLl99DlL6b4"
+  },
+  {
+    "admin_review": "This movie is awful.",
+    "genre": [
+      {
+        "genre_id": 2,
+        "genre_name": "Drama"
+      },
+      {
+        "genre_id": 1,
+        "genre_name": "Comedy"
+      }
+    ],
+    "imdb_id": "tt7131622",
+    "poster_path": "https://image.tmdb.org/t/p/w300/wQKeS2JrsRF8XSfd9zqflrc5gad.jpg",
+    "ranking": {
+      "ranking_name": "Terrible",
+      "ranking_value": 5
+    },
+    "title": "Once upon a time in Hollywood",
+    "youtube_id": "ELeMaP8EPAA"
+  },
+  {
+    "admin_review": "I didn't love this movie but I didn't hate it either.",
+    "genre": [
+      {
+        "genre_id": 1,
+        "genre_name": "Comedy"
+      }
+    ],
+    "imdb_id": "tt0080339",
+    "poster_path": "https://image.tmdb.org/t/p/w300/zOiB3p2WTTiwCFgTMnXuDGgzbTN.jpg",
+    "ranking": {
+      "ranking_name": "Okay",
+      "ranking_value": 3
+    },
+    "title": "Airplane!",
+    "youtube_id": "07pPmCfKi3U"
+  },
+  {
+    "admin_review": "I didn't love this movie but I didn't hate it either.",
+    "genre": [
+      {
+        "genre_id": 1,
+        "genre_name": "Comedy"
+      }
+    ],
+    "imdb_id": "tt1119646",
+    "poster_path": "https://image.tmdb.org/t/p/w300/c15rH9S5JN83UXqu9iM4TQsW6Rl.jpg",
+    "ranking": {
+      "ranking_name": "Okay",
+      "ranking_value": 3
+    },
+    "title": "The Hangover",
+    "youtube_id": "jj6wcUes1no"
+  },
+  {
+    "admin_review": "This is really not so great.",
+    "genre": [
+      {
+        "genre_id": 1,
+        "genre_name": "Comedy"
+      }
+    ],
+    "imdb_id": "tt0109040",
+    "poster_path": "https://image.tmdb.org/t/p/w300/dukxJWd72ffNWfqfFSVFFuym4RG.jpg",
+    "ranking": {
+      "ranking_name": "Bad",
+      "ranking_value": 4
+    },
+    "title": "Ace Ventura: Pet Detective",
+    "youtube_id": "qjBb1CKLpzE"
+  },
+  {
+    "admin_review": "I hate this movie",
+    "genre": [
+      {
+        "genre_id": 2,
+        "genre_name": "Drama"
+      },
+      {
+        "genre_id": 3,
+        "genre_name": "Western"
+      }
+    ],
+    "imdb_id": "tt0105695",
+    "poster_path": "https://image.tmdb.org/t/p/w300/7W0CsZBe5fkX29DvHBi5Ct1WqLe.jpg",
+    "ranking": {
+      "ranking_name": "Terrible\n",
+      "ranking_value": 5
+    },
+    "title": "Unforgiven",
+    "youtube_id": "6_UlfsdGiEc"
+  },
+  {
+    "admin_review": "I did not like this!",
+    "genre": [
+      {
+        "genre_id": 3,
+        "genre_name": "Western"
+      }
+    ],
+    "imdb_id": "tt0060196",
+    "poster_path": "https://image.tmdb.org/t/p/w300/e881nA7p982CHL5GjI1LICwHMd7.jpg",
+    "ranking": {
+      "ranking_name": "Bad",
+      "ranking_value": 4
+    },
+    "title": "The Good, The Bad, and the Ugly",
+    "youtube_id": "WCN5JJY_wiA"
+  },
+  {
+    "admin_review": "The movie was aweful! I really hated it.",
+    "genre": [
+      {
+        "genre_id": 4,
+        "genre_name": "Fantasy"
+      }
+    ],
+    "imdb_id": "tt0903624",
+    "poster_path": "https://image.tmdb.org/t/p/w300/vdAGcr1F6wJPRryeODVAcy2mU4z.jpg",
+    "ranking": {
+      "ranking_name": "Terrible",
+      "ranking_value": 5
+    },
+    "title": "The Hobbit: An Unexpected Journey",
+    "youtube_id": "9PSXjr1gbjc"
+  },
+  {
+    "admin_review": "This movie wasn't great but it wasn't bad either.",
+    "genre": [
+      {
+        "genre_id": 4,
+        "genre_name": "Fantasy"
+      }
+    ],
+    "imdb_id": "tt0241527",
+    "poster_path": "https://image.tmdb.org/t/p/w300/e6JYlushXIXK85JGfDHEFHrrNYK.jpg",
+    "ranking": {
+      "ranking_name": "Okay",
+      "ranking_value": 3
+    },
+    "title": "Harry Potter and the Philosopher's Stone",
+    "youtube_id": "VyHV0BRtdxo"
+  },
+  {
+    "admin_review": "An okay but dark movie.",
+    "genre": [
+      {
+        "genre_id": 2,
+        "genre_name": "Drama"
+      },
+      {
+        "genre_id": 4,
+        "genre_name": "Fantasy"
+      }
+    ],
+    "imdb_id": "tt2267998",
+    "poster_path": "https://image.tmdb.org/t/p/w300/xpA0q0DJWKe7AY63pVPZbGLwuo5.jpg",
+    "ranking": {
+      "ranking_name": "Okay",
+      "ranking_value": 3
+    },
+    "title": "Gone Girl",
+    "youtube_id": "2-_-1nJf8Vg"
+  },
+  {
+    "admin_review": "The story was fantastic and the acting was sublime!",
+    "genre": [
+      {
+        "genre_id": 2,
+        "genre_name": "Drama"
+      },
+      {
+        "genre_id": 5,
+        "genre_name": "Thriller"
+      },
+      {
+        "genre_id": 8,
+        "genre_name": "Mystery"
+      }
+    ],
+    "imdb_id": "tt8946378",
+    "poster_path": "https://image.tmdb.org/t/p/w300/hVcCOlHU0HmGBBQNmS9RlalBXGz.jpg",
+    "ranking": {
+      "ranking_name": "Excellent",
+      "ranking_value": 1
+    },
+    "title": "Knives Out",
+    "youtube_id": "qGqiHJTsRkQ"
+  },
+  {
+    "admin_review": "This is okay!",
+    "genre": [
+      {
+        "genre_id": 6,
+        "genre_name": "Sci-Fi"
+      },
+      {
+        "genre_id": 4,
+        "genre_name": "Fantasy"
+      }
+    ],
+    "imdb_id": "tt0080684",
+    "poster_path": "https://image.tmdb.org/t/p/w300/1mh82R1qLKwdutQVGnpHItdwPCP.jpg",
+    "ranking": {
+      "ranking_name": "Okay",
+      "ranking_value": 3
+    },
+    "title": "Star Wars: The Empire Strikes Back",
+    "youtube_id": "JNwNXF9Y6kY"
+  },
+  {
+    "admin_review": "It wasn't good but it wasn't too bad either.",
+    "genre": [
+      {
+        "genre_id": 6,
+        "genre_name": "Sci-Fi"
+      },
+      {
+        "genre_id": 7,
+        "genre_name": "Action"
+      }
+    ],
+    "imdb_id": "tt0102975",
+    "poster_path": "https://image.tmdb.org/t/p/w300/jukY1tFpuXgqrJLl1PvdOMarCvN.jpg",
+    "ranking": {
+      "ranking_name": "Okay",
+      "ranking_value": 3
+    },
+    "title": "Star Trek: The Undiscovered Country",
+    "youtube_id": "RYA2q2Sm_Jo"
+  },
+  {
+    "admin_review": "This was a lovely movie!",
+    "genre": [
+      {
+        "genre_id": 9,
+        "genre_name": "Crime"
+      },
+      {
+        "genre_id": 7,
+        "genre_name": "Action"
+      },
+      {
+        "genre_id": 5,
+        "genre_name": "Thriller"
+      }
+    ],
+    "imdb_id": "tt1297919",
+    "poster_path": "https://image.tmdb.org/t/p/w300/tI4fPu0LZ0FNdZdi6fvYGCRiuQs.jpg",
+    "ranking": {
+      "ranking_name": "Excellent",
+      "ranking_value": 1
+    },
+    "title": "Blitz",
+    "youtube_id": "mhO2WJ3MNRI"
+  },
+  {
+    "admin_review": "This might be the worst movie that I have ever seen in my life!",
+    "genre": [
+      {
+        "genre_id": 7,
+        "genre_name": "Action"
+      },
+      {
+        "genre_id": 5,
+        "genre_name": "Thriller"
+      }
+    ],
+    "imdb_id": "tt0790724",
+    "poster_path": "https://image.tmdb.org/t/p/w300/8sih1uieUopA9zrEO1meNhmm7aO.jpg",
+    "ranking": {
+      "ranking_name": "Terrible",
+      "ranking_value": 5
+    },
+    "title": "Jack Reacher",
+    "youtube_id": "A7FiWkyevqY"
+  }
+]

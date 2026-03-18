@@ -1,0 +1,4 @@
+# Local Properties
+*-local.properties
+application-local.properties
+.env

@@ -58,7 +58,6 @@ public class MovieRepository {
 
     // ── mapping helpers ──────────────────────────────────────────────────────
 
-    @SuppressWarnings("unchecked")
     private Movie toMovie(Document doc) {
         Movie m = new Movie();
         m.setId(doc.getObjectId("_id").toHexString());
@@ -78,16 +77,4 @@ public class MovieRepository {
         return m;
     }
 
-    private Document toDocument(Movie m) {
-        Document doc = new Document();
-        if (m.getId() != null) doc.append("_id", new ObjectId(m.getId()));
-        doc.append("imdb_id",      m.getImdb_id())
-           .append("title",        m.getTitle())
-           .append("poster_path",  m.getPoster_path())
-           .append("youtube_id",   m.getYoutube_id())
-           .append("admin_review", m.getAdmin_review())
-           .append("genre",        m.getGenre())
-           .append("ranking",      m.getRanking());
-        return doc;
-    }
 }
