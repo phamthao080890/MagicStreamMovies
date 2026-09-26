@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">MagicStream Movies</string>
+
+    <string name="poster_content_description">Áp phích phim</string>
+    <string name="home">Trang chủ</string>
+    <string name="movies">Trang chủ</string>
+    <string name="genres">Thể loại</string>
+    <string name="favourites">Yêu thích</string>
+    <string name="profile">Người dùng</string>
+    <string name="sign_in">Đăng nhập</string>
+    <string name="sign_out">Đăng xuất</string>
+    <string name="register">Đăng ký</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="search_movies">Tìm kiếm phim</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="name">Tên</string>
+    <string name="create_account">Tạo tài khoản</string>
+    <string name="already_have_account">Bạn đã có tài khoản? Đăng nhập</string>
+    <string name="add_to_favourites">Thêm vào yêu thích</string>
+    <string name="remove_from_favourites">Xóa khỏi yêu thích</string>
+    <string name="watch_trailer">Trailer</string>
+    <string name="no_movies_available">Không có phim nào.</string>
+    <string name="no_movies_in_genre">Không có phim trong thể loại này.</string>
+    <string name="no_search_results">Không tìm thấy phim phù hợp.</string>
+    <string name="no_favourites">Bạn chưa có phim yêu thích nào.</string>
+    <string name="valid_email">Nhập địa chỉ email hợp lệ</string>
+    <string name="password_required">Vui lòng nhập mật khẩu</string>
+    <string name="name_required">Vui lòng nhập tên</string>
+    <string name="password_length">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="movie_title_required">Nhập tên phim</string>
+    <string name="account_created">Tạo tài khoản thành công. Vui lòng đăng nhập.</string>
+    <string name="favourite_added">Đã thêm vào yêu thích.</string>
+    <string name="favourite_removed">Đã xóa khỏi yêu thích.</string>
+    <string name="genre_format">Thể loại: %1$s</string>
+    <string name="review_format">Đánh giá: %1$s</string>
+    <string name="ranking_format">Xếp hạng: %1$s</string>
+    <string name="not_available">Không có</string>
+</resources>
