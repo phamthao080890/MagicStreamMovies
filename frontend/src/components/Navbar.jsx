@@ -17,10 +17,10 @@ export default function Navbar() {
     return (
         <header className="site-header">
             <nav className="site-nav" aria-label="Điều hướng chính">
-                <Link to="/featured" className="site-nav__brand" aria-label="MagicStream - Nổi bật"><span className="site-nav__mark">M</span><span>MAGIC<span>STREAM</span></span></Link>
+                <Link to="/" className="site-nav__brand" aria-label="MagicStream - Nổi bật"><span className="site-nav__mark">M</span><span>MAGIC<span>STREAM</span></span></Link>
                 <div className="site-nav__links">
-                    <Link to="/featured" className={location.pathname === "/featured" ? "active" : undefined}>Nổi bật</Link>
-                    <Link to="/" className={location.pathname === "/" ? "active" : undefined}>Tất cả</Link>
+                    <Link to="/" className={location.pathname === "/" || location.pathname === "/featured" ? "active" : undefined}>Nổi bật</Link>
+                    <Link to="/all" className={location.pathname === "/all" ? "active" : undefined}>Tất cả</Link>
                     <Link to="/genres" className={location.pathname === "/genres" ? "active" : undefined}>Thể loại</Link>
                     {user && <Link to="/favourites" className={location.pathname === "/favourites" ? "active" : undefined}>Yêu thích</Link>}
                 </div>

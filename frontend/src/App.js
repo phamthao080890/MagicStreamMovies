@@ -21,7 +21,8 @@ export default function App(){
                 <ScrollToTop />
                 <Navbar /> 
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Featured />} />
+                        <Route path="/all" element={<Home />} />
                         <Route path="/movie/:id" element={<MovieDetails />} />
                         <Route path="/genres" element={<Genres />} />
                         <Route path="/login" element={<Login />} />
