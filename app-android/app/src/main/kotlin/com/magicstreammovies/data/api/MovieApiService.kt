@@ -17,6 +17,9 @@ interface MovieApiService {
     @GET("movies")
     fun movies(): Call<List<Movie>>
 
+    @GET("recommendations")
+    fun recommendations(@Query("q") query: String): Call<List<Movie>>
+
     @GET("movies/{id}")
     fun movie(@Path("id") id: String): Call<Movie>
 

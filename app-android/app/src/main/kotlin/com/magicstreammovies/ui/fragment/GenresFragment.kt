@@ -31,7 +31,10 @@ class GenresFragment : BaseMovieFragment() {
         }
 
         movieViewModel.genres().observe(viewLifecycleOwner) { viewState ->
+            loadingProgressBar.visibility = if (viewState.loading) View.VISIBLE else View.GONE
+            viewState.error?.let { showMessage(it) }
             viewState.data?.let {
+                if (it.isEmpty()) showMessage(getString(R.string.no_movies_in_genre))
                 genreAdapter.submit(it)
                 it.firstOrNull()?.let { genre ->
                     genreAdapter.select(genre.name)

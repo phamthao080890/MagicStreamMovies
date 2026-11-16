@@ -2,8 +2,15 @@
     <string name="app_name">MagicStream Movies</string>
 
     <string name="poster_content_description">Áp phích phim</string>
-    <string name="home">Trang chủ</string>
-    <string name="movies">Trang chủ</string>
+    <string name="home">Tất cả</string>
+    <string name="movies">Tất cả</string>
+    <string name="featured">Nổi bật</string>
+    <string name="recommendation_hint">Ví dụ: phim tình cảm nhẹ nhàng</string>
+    <string name="recommendation_intro">Hôm nay bạn muốn xem gì? Mô tả thể loại hoặc câu chuyện để nhận gợi ý.</string>
+    <string name="recommendation_button">Gợi ý phim</string>
+    <string name="recommendation_required">Vui lòng nhập mô tả phim</string>
+    <string name="trailer_unavailable">Trailer chưa có sẵn cho phim này.</string>
+    <string name="description_format">Nội dung: %1$s</string>
     <string name="genres">Thể loại</string>
     <string name="favourites">Yêu thích</string>
     <string name="profile">Người dùng</string>

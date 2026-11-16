@@ -20,7 +20,7 @@ describe('Navbar', () => {
         <Navbar />
       </MemoryRouter>
     );
-    expect(screen.getByText(/Trang chủ/i)).toBeInTheDocument();
+    expect(screen.getByText(/Tất cả/i)).toBeInTheDocument();
     expect(screen.getByText(/Thể loại/i)).toBeInTheDocument();
     expect(screen.getByText(/Đăng nhập/i)).toBeInTheDocument();
     expect(screen.queryByText(/Yêu thích/i)).not.toBeInTheDocument();

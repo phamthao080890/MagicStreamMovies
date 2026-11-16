@@ -1,0 +1,25 @@
+body { background: #11111a; color: #f8f7fb; }
+.catalog-page h1 { color: #f8f7fb; }
+.catalog-page__eyebrow { color: #f6b26f; }
+.catalog-page__subtitle { color: #b8b3c1; }
+.movie-card { background: #1c1c29; color: #f6f3f7; border-color: #30303d; }
+.movie-card__poster { background-color: #31303c; }
+.movie-card:hover { border-color: #b77f58; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.genres__btn { background: #1c1c29; color: #eeeaf1; border-color: #3d3b4a; }
+.genres__btn:hover { background: #34303d; }
+.genres__btn.genres__btn--active, .genres__btn.genres__btn--active:hover { background: #f6b26f; color: #24151b; border-color: #f6b26f; }
+.details__meta { color: #c9c5cf; }
+.details__label { color: #f8f7fb; }
+.details__btn { background: #f6b26f; color: #24151b; border-color: #f6b26f; }
+.details__btn:hover { background: #ffd09f; }
+.details a { color: #f6b26f; }
+.login__card, .register__card, .profile__card { background: #1c1c29; border-color: #3d3b4a; }
+.login__label, .register__label { color: #e4dfe7; }
+.login__input, .register__input { background: #11111a; border-color: #77717f; color: #f8f7fb; }
+.login__submit, .register__submit { background: #f6b26f; border-color: #f6b26f; color: #24151b; }
+.login__submit:hover, .register__submit:hover { background: #ffd09f; }
+.login__error, .register__error, .search-error { color: #ff9292; }
+.login__success, .register__success { color: #85dda0; }
+.profile__info { background: #11111a; border-color: #3d3b4a; }
+.profile__row, .profile__label { color: #f8f7fb; }
+.no-results-highlight { color: #f6b26f; }

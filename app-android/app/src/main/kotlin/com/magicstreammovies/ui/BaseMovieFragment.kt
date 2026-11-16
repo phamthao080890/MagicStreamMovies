@@ -21,6 +21,7 @@ open class BaseMovieFragment : BaseFragment() {
 
     protected fun renderMovieState(state: ViewState<List<Movie>>, adapter: MovieAdapter, emptyMessage: String) {
         loadingProgressBar.visibility = if (state.loading) View.VISIBLE else View.GONE
+        if (state.loading) messageTextView.visibility = View.GONE
         state.data?.let { movies ->
             adapter.submit(movies)
             messageTextView.visibility = if (movies.isEmpty()) View.VISIBLE else View.GONE

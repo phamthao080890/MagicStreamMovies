@@ -7,4 +7,4 @@
     android:background="@drawable/genre_chip"
     android:paddingHorizontal="14dp"
     android:paddingVertical="9dp"
-    android:textColor="@color/text_primary" />
+    android:textColor="@color/genre_text_color" />

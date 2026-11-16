@@ -11,6 +11,9 @@ class MovieRepository : BaseRepository() {
     fun movie(id: String, callback: ResultCallback<Movie>) =
         execute(ApiClient.service.movie(id), callback)
 
+    fun recommendations(query: String, callback: ResultCallback<List<Movie>>) =
+        execute(ApiClient.service.recommendations(query), callback)
+
     fun search(query: String, callback: ResultCallback<List<Movie>>) =
         execute(ApiClient.service.search(query), callback)
 

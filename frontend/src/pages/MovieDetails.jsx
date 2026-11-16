@@ -108,6 +108,7 @@ export default function MovieDetails() {
                                     <span className="details__label">Xếp hạng: </span>{getRankingText()}
                                 </div>
                             </div>
+                            {movie.description && <p>{movie.description}</p>}
                             <div className="details__actions">
                                 <button onClick={handleAddFavourite} className="details__btn">Thêm vào Yêu thích</button>
                                 {favMessage && (
@@ -126,6 +127,12 @@ export default function MovieDetails() {
                             ></iframe>
                         </div>
                     )}
+                    {!movie.youtube_id && /^vi[0-9]+$/.test(movie.imdb_video_id || "") && (
+                        <div className="details__video" aria-label="IMDb trailer">
+                            <iframe src={`https://www.imdb.com/video/embed/${movie.imdb_video_id}/`} title="IMDb trailer" allowFullScreen />
+                        </div>
+                    )}
+                    {!movie.youtube_id && !movie.imdb_video_id && <p>Trailer chưa có sẵn cho phim này.</p>}
                 </div>
             </div>
         );

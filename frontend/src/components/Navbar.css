@@ -1,0 +1,13 @@
+.site-header { background: #11111a; color: #f8f7fb; border-bottom: 1px solid rgba(255,255,255,.08); }
+.site-nav { min-height: 76px; max-width: 1440px; margin: auto; padding: 0 5%; display: flex; align-items: center; gap: 44px; }
+.site-nav a { text-decoration: none; }
+.site-nav__brand { color: #fff; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 850; letter-spacing: .045em; white-space: nowrap; }
+.site-nav__brand > span:last-child > span { color: #f8ad65; }
+.site-nav__mark { width: 34px; height: 34px; display: grid; place-items: center; color: #17111a; background: #f6b26f; border-radius: 10px; font-size: 21px; font-weight: 900; }
+.site-nav__links { display: flex; align-items: center; gap: 28px; flex: 1; }
+.site-nav__links a, .site-nav__register { color: #a4a2af; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.site-nav__links a:hover, .site-nav__links a.active, .site-nav__register:hover { color: #fff; }
+.site-nav__account { display: flex; align-items: center; gap: 20px; }
+.site-nav__login { background: #f6b26f; color: #21151b; padding: 10px 16px; border-radius: 7px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.site-nav__avatar { color: #fff; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid #f6b26f; font-weight: 700; text-transform: uppercase; }
+@media(max-width: 700px) { .site-nav { padding: 14px 18px; min-height: 0; flex-wrap: wrap; gap: 15px; } .site-nav__brand { flex: 1; } .site-nav__account { order: 1; gap: 12px; } .site-nav__links { order: 2; flex-basis: 100%; gap: 22px; overflow-x: auto; padding: 7px 0 2px; } }

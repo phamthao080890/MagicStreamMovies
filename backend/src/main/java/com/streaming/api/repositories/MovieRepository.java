@@ -4,6 +4,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.streaming.api.models.Movie;
+import com.streaming.api.services.GenreNames;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
@@ -49,9 +50,12 @@ public class MovieRepository {
 
     public List<Movie> searchByGenreName(String genreName) {
         List<Movie> movies = new ArrayList<>();
-        Bson filter = regex("genre.genre_name", genreName, "i");
-        for (Document doc : collection.find(filter)) {
-            movies.add(toMovie(doc));
+        for (Document doc : collection.find()) {
+            Movie movie = toMovie(doc);
+            if (movie.getGenre() != null && movie.getGenre().stream().anyMatch(g ->
+                    GenreNames.matches(genreName, java.util.Objects.toString(g.get("genre_name"), "")))) {
+                movies.add(movie);
+            }
         }
         return movies;
     }
@@ -63,8 +67,11 @@ public class MovieRepository {
         m.setId(doc.getObjectId("_id").toHexString());
         m.setImdb_id(doc.getString("imdb_id"));
         m.setTitle(doc.getString("title"));
+        m.setDescription(doc.getString("description"));
+        m.setSource_url(doc.getString("source_url"));
         m.setPoster_path(doc.getString("poster_path"));
         m.setYoutube_id(doc.getString("youtube_id"));
+        m.setImdb_video_id(doc.getString("imdb_video_id"));
         m.setAdmin_review(doc.getString("admin_review"));
         m.setGenre(doc.getList("genre", Document.class) == null ? null :
             doc.getList("genre", Document.class).stream()

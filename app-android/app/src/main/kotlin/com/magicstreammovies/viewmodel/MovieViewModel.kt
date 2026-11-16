@@ -32,6 +32,11 @@ class MovieViewModel : ViewModel() {
         repository.movies { post(movieState, it) }
     }
 
+    fun recommend(query: String) {
+        movieState.value = ViewState(loading = true)
+        repository.recommendations(query) { post(movieState, it) }
+    }
+
     fun search(query: String) {
         movieState.value = ViewState(loading = true)
         repository.search(query) {

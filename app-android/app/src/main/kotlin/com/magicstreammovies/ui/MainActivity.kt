@@ -1,7 +1,6 @@
 package com.magicstreammovies.ui
 
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
@@ -17,7 +16,7 @@ import com.magicstreammovies.ui.fragment.HomeFragment
 import com.magicstreammovies.ui.fragment.LoginFragment
 import com.magicstreammovies.ui.fragment.MovieDetailsFragment
 import com.magicstreammovies.ui.fragment.ProfileFragment
-import com.magicstreammovies.ui.fragment.SearchFragment
+import com.magicstreammovies.ui.fragment.FeaturedFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var tabBar: BottomNavigationView
@@ -28,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, true)
         window.statusBarColor = getColor(R.color.nav_dark)
         WindowInsetsControllerCompat(window, window.decorView).apply {
-            isAppearanceLightStatusBars = true
-            isAppearanceLightNavigationBars = true
+            isAppearanceLightStatusBars = false
+            isAppearanceLightNavigationBars = false
         }
 
         setContentView(R.layout.activity_main)
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         refreshSessionNavigation()
         tabBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
+                R.id.nav_featured -> showRoot(FeaturedFragment(), getString(R.string.featured))
                 R.id.nav_home -> showRoot(HomeFragment(), getString(R.string.movies))
                 R.id.nav_genres -> showRoot(GenresFragment(), getString(R.string.genres))
                 R.id.nav_favourites -> requireLogin(FavouritesFragment(), getString(R.string.favourites))
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.addOnBackStackChangedListener {
             updateAppBarForCurrentScreen()
         }
-        if (state == null) showRoot(HomeFragment(), getString(R.string.movies))
+        if (state == null) showRoot(FeaturedFragment(), getString(R.string.featured))
     }
 
     private fun requireLogin(fragment: Fragment, title: String) {
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             is FavouritesFragment -> supportActionBar?.title = getString(R.string.favourites)
             is ProfileFragment -> supportActionBar?.title = getString(R.string.profile)
             is LoginFragment -> supportActionBar?.title = getString(R.string.sign_in)
-            is SearchFragment -> supportActionBar?.title = getString(R.string.search)
+            is FeaturedFragment -> supportActionBar?.title = getString(R.string.featured)
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(
             supportFragmentManager.findFragmentById(R.id.fragment_container) is MovieDetailsFragment
@@ -97,19 +97,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_top_app_bar, menu)
-        return true
-    }
-
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         android.R.id.home -> {
             supportFragmentManager.popBackStack()
-            true
-        }
-
-        R.id.action_search -> {
-            show(SearchFragment(), getString(R.string.search))
             true
         }
 

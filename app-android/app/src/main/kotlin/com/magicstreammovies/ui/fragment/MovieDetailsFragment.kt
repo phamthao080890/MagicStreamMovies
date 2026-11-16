@@ -59,23 +59,27 @@ class MovieDetailsFragment : BaseFragment() {
 
             state.data?.let { movie ->
                 rootView.findViewById<TextView>(R.id.title).text = movie.title
+                rootView.findViewById<TextView>(R.id.description).apply {
+                    text = getString(R.string.description_format, movie.description.orEmpty())
+                    visibility = if (movie.description.isNullOrBlank()) View.GONE else View.VISIBLE
+                }
                 rootView.findViewById<TextView>(R.id.genres).text = getString(R.string.genre_format, movie.genreText())
                 rootView.findViewById<TextView>(R.id.review).text = getString(R.string.review_format, movie.adminReview ?: getString(R.string.not_available))
                 rootView.findViewById<TextView>(R.id.ranking).text = getString(R.string.ranking_format, movie.rankingText())
 
                 Glide.with(this).load(movie.posterPath).into(rootView.findViewById(R.id.poster))
 
-                trailerButton.visibility = if (movie.youtubeId.isNullOrEmpty()) View.GONE else View.VISIBLE
+                val youtubeId = movie.youtubeId?.takeIf { it.matches(Regex("[A-Za-z0-9_-]{11}")) }
+                val imdbId = movie.imdbVideoId?.takeIf { it.matches(Regex("vi[0-9]+")) }
+                trailerButton.visibility = if (youtubeId != null || imdbId != null) View.VISIBLE else View.GONE
+                rootView.findViewById<View>(R.id.trailer_unavailable).visibility =
+                    if (youtubeId == null && imdbId == null) View.VISIBLE else View.GONE
                 trailerButton.setOnClickListener {
+                    val url = if (youtubeId != null) "https://www.youtube-nocookie.com/embed/$youtubeId?playsinline=1"
+                        else "https://www.imdb.com/video/embed/$imdbId/"
                     trailerPlayer.visibility = View.VISIBLE
                     trailerContainer.visibility = View.VISIBLE
-                    trailerPlayer.loadDataWithBaseURL(
-                        "https://www.youtube-nocookie.com",
-                        """<html><body style="margin:0;background:#000;"><iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/${movie.youtubeId}?playsinline=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></body></html>""",
-                        "text/html",
-                        "UTF-8",
-                        null
-                    )
+                    trailerPlayer.loadUrl(url)
                 }
             }
             state.error?.let {

@@ -1,11 +1,11 @@
 # MagicStream Movies for Android
 
-Native Java Android application for Android 10 (API 29) and later.
+Native Kotlin Android application for Android 10 (API 29) and later.
 
 ## Run
 
 Open this folder in Android Studio, allow Gradle to sync, then run on an API 29+ device or emulator.
-The server URL lives in `app/build.gradle` as `API_BASE_URL`.
+The server URL lives in `app/build.gradle` as `API_BASE_URL`. The Nổi bật tab requires the backend recommendation endpoint; movie details support YouTube and IMDb trailer embeds. Playback availability depends on the provider.
 
 ## Structure
 

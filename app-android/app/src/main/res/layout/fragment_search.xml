@@ -5,6 +5,13 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="@string/recommendation_intro"
+        android:textColor="@color/text_secondary" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,7 +22,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/search_movies"
+            android:hint="@string/recommendation_hint"
+            android:maxLength="500"
             android:imeOptions="actionSearch"
             android:inputType="text" />
 
@@ -23,7 +31,7 @@
             android:id="@+id/search_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/search" />
+            android:text="@string/recommendation_button" />
     </LinearLayout>
 
     <FrameLayout

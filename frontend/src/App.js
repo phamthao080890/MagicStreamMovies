@@ -12,6 +12,8 @@ import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Favourites from "./pages/Favourites";
 import Search from "./pages/Search";
+import Featured from "./pages/Featured";
+import "./theme.css";
 
 export default function App(){
         return (
@@ -27,6 +29,7 @@ export default function App(){
                         <Route path="/register" element={<Register />} />
                         <Route path="/favourites" element={<Favourites />} />
                         <Route path="/search" element={<Search />} />
+                        <Route path="/featured" element={<Featured />} />
                     </Routes>
                     <BottomNav />
                 </BrowserRouter>

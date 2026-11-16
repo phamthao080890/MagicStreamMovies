@@ -8,6 +8,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.UpdateOptions;
+import java.util.Arrays;
 import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
@@ -34,7 +39,45 @@ public class DataSeeder implements ApplicationRunner {
         seedCollection("genres",  "seed/genres.json",  false);
         seedCollection("rankings","seed/rankings.json", false);
         seedCollection("movies",  "seed/movies.json",  false);
+        seedExternalMovieFiles();
         seedCollection("users",   "seed/users.json",   true);
+    }
+
+    /** Source-based seed files are additive and safe to rerun on an existing catalog. */
+    private void seedExternalMovieFiles() {
+        try {
+            Resource[] files = new PathMatchingResourcePatternResolver().getResources("classpath*:seed/*-movies.json");
+            Arrays.sort(files, java.util.Comparator.comparing(Resource::getFilename, java.util.Comparator.nullsLast(String::compareTo)));
+            for (Resource file : files) seedExternalMovies(file);
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to import movie seed data", e);
+        }
+    }
+
+    private void seedExternalMovies(Resource file) throws Exception {
+        String json;
+        try (InputStream in = file.getInputStream()) { json = new String(in.readAllBytes(), StandardCharsets.UTF_8); }
+        List<Document> docs = Document.parse("{\"data\":" + json + "}").getList("data", Document.class);
+        if (docs == null) throw new IllegalStateException("Invalid seed file: " + file.getFilename());
+        MongoCollection<Document> collection = mongoDatabase.getCollection("movies");
+        int added = 0, completed = 0;
+        for (Document doc : docs) {
+            String sourceId = doc.getString("source_id");
+            if (sourceId == null || sourceId.isBlank()) throw new IllegalStateException("Missing source_id in " + file.getFilename());
+            var inserted = collection.updateOne(Filters.eq("source_id", sourceId),
+                new Document("$setOnInsert", doc), new UpdateOptions().upsert(true));
+            if (inserted.getUpsertedId() != null) added++;
+            for (String field : List.of("title", "poster_path", "description", "source_url", "genre", "youtube_id", "imdb_video_id")) {
+                Object value = doc.get(field);
+                if (value == null || value instanceof String str && str.isBlank() || value instanceof List<?> list && list.isEmpty()) continue;
+                if (field.equals("youtube_id") && (!(value instanceof String str) || !str.matches("[A-Za-z0-9_-]{11}"))) continue;
+                if (field.equals("imdb_video_id") && (!(value instanceof String str) || !str.matches("vi[0-9]+"))) continue;
+                var missing = Filters.or(Filters.exists(field, false), Filters.eq(field, null), Filters.eq(field, ""), Filters.eq(field, List.of()));
+                completed += (int) collection.updateOne(Filters.and(Filters.eq("source_id", sourceId), missing),
+                    new Document("$set", new Document(field, value))).getModifiedCount();
+            }
+        }
+        log.info("[DataSeeder] '{}' processed: {} records, {} added, {} missing fields filled.", file.getFilename(), docs.size(), added, completed);
     }
 
     // ── helpers ──────────────────────────────────────────────────────────────

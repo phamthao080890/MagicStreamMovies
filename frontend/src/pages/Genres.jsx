@@ -18,7 +18,7 @@ export default function Genres() {
                         const first = list[0];
                         const name = typeof first === "object" ? first.genre_name : first;
                         setSelectedGenre(name);
-                        API.get(`/movies/genre/${name}`)
+                        API.get(`/movies/genre/${encodeURIComponent(name)}`)
                             .then(r => setMovies(r.data))
                             .catch(err => console.log(err));
                     }
@@ -28,7 +28,7 @@ export default function Genres() {
         
         const loadMoviesByGenre = (genreName) => {
             setSelectedGenre(genreName);
-            API.get(`/movies/genre/${genreName}`)
+            API.get(`/movies/genre/${encodeURIComponent(genreName)}`)
                 .then(res => setMovies(res.data))
                 .catch(err => console.log(err));
         };

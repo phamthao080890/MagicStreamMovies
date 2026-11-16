@@ -6,6 +6,8 @@ data class Movie(
     val id: String? = null,
     val title: String? = null,
     @SerializedName("poster_path") val posterPath: String? = null,
+    val description: String? = null,
+    @SerializedName("imdb_video_id") val imdbVideoId: String? = null,
     @SerializedName("youtube_id") val youtubeId: String? = null,
     @SerializedName("admin_review") val adminReview: String? = null,
     val genre: List<Genre>? = null,

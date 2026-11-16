@@ -57,29 +57,10 @@ Install the following things:
 
 > **No manual `mongoimport` step is required.**
 
-The application includes a `DataSeeder` component that runs automatically on
-startup. It checks each collection and **only imports data when the collection
-is empty**, so it is safe to restart without duplicating records.
+The application includes a `DataSeeder` component that runs automatically on startup.
+The core `genres.json`, `rankings.json`, `movies.json`, and `users.json` files are imported only when their collection is empty. The source-based movie files `seed/*-movies.json` (including `wetv-movies.json` and `motphim-movies.json`) are processed on every startup, including when the movie collection already has data.
 
-Collections seeded from `src/main/resources/seed/`:
-
-| Collection  | Source file          |
-|-------------|----------------------|
-| `genres`    | `seed/genres.json`   |
-| `rankings`  | `seed/rankings.json` |
-| `movies`    | `seed/movies.json`   |
-| `users`     | `seed/users.json`    |
-
-Startup log output when seeding runs:
-```
-[DataSeeder] 'genres' is empty — importing from seed/genres.json...
-[DataSeeder] Inserted 9 document(s) into 'genres'.
-```
-
-Startup log output when data already exists (no-op):
-```
-[DataSeeder] 'genres' already has data — skipping import.
-```
+Each external movie needs a stable, unique `source_id`. New IDs are inserted; for existing IDs, missing title, poster, description, source URL, genres, and trailer fields are filled without replacing populated values. To add another external seed source, put a `*-movies.json` file in `src/main/resources/seed/` and deploy the rebuilt backend. Do not change existing source IDs. Updated non-empty metadata is deliberately not overwritten; removing a record from a seed file does not delete it from the database. The backend logs how many records and fields were added. Failures importing source-based movie data stop startup so an incomplete deployment is visible.
 
 ## MongoDB Driver
 
@@ -165,3 +146,8 @@ a dropdown with the selected run configuration. Click it and select
 
 Click the `+` sign on the top left of the dialog box to add a new
 configuration.
+
+
+## Movie recommendations
+
+The Nổi bật page recommends catalog movies by matching words in titles, genres and reviews, including Vietnamese genre names. No external service or API key is needed.

@@ -1,6 +1,7 @@
 package com.streaming.api.controllers;
 
 import com.streaming.api.models.Movie;
+import com.streaming.api.services.MovieDeduplicator;
 import com.streaming.api.repositories.MovieRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -20,9 +21,9 @@ public class MovieController {
     @GetMapping
     public List<Movie> getMovies(@RequestParam(required = false) String query) {
         if (query != null && !query.isEmpty()) {
-            return movieRepository.findByTitleContainingIgnoreCase(query);
+            return MovieDeduplicator.unique(movieRepository.findByTitleContainingIgnoreCase(query));
         }
-        return movieRepository.findAll();
+        return MovieDeduplicator.unique(movieRepository.findAll());
     }
 
     // GET MOVIE BY ID
@@ -34,11 +35,11 @@ public class MovieController {
     // SEARCH MOVIES
     @GetMapping("/search")
     public List<Movie> searchMovies(@RequestParam("q") String query) {
-        return movieRepository.findByTitleContainingIgnoreCase(query);
+        return MovieDeduplicator.unique(movieRepository.findByTitleContainingIgnoreCase(query));
     }
 
     @GetMapping("/genre/{genreName}")
     public List<Movie> getMoviesByGenre(@PathVariable String genreName) {
-        return movieRepository.searchByGenreName(genreName);
+        return MovieDeduplicator.unique(movieRepository.searchByGenreName(genreName));
     }
 }
