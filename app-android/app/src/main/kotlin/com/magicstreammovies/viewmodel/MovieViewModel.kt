@@ -8,8 +8,7 @@ import com.magicstreammovies.data.model.Movie
 import com.magicstreammovies.data.repository.ApiResult
 import com.magicstreammovies.data.repository.MovieRepository
 
-class MovieViewModel : ViewModel() {
-    private val repository = MovieRepository()
+class MovieViewModel(private val repository: MovieRepository = MovieRepository()) : ViewModel() {
 
     private val movieState = MutableLiveData<ViewState<List<Movie>>>()
 

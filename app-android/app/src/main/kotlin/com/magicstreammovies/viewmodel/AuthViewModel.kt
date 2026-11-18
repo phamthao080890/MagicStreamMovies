@@ -7,10 +7,8 @@ import com.magicstreammovies.data.model.AuthResponse
 import com.magicstreammovies.data.repository.ApiResult
 import com.magicstreammovies.data.repository.AuthRepository
 
-class AuthViewModel : ViewModel() {
+class AuthViewModel(private val repository: AuthRepository = AuthRepository()) : ViewModel() {
     private val authState = MutableLiveData<ViewState<AuthResponse>>()
-
-    private val repository = AuthRepository()
 
     fun state(): LiveData<ViewState<AuthResponse>> = authState
 
