@@ -1,0 +1,60 @@
+name: Android CI - Build and unit tests
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "app-android/**"
+      - ".github/workflows/build.android.yml"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "app-android/**"
+      - ".github/workflows/build.android.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build debug and run unit tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: app-android
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+        with:
+          packages: 'platform-tools platforms;android-35 build-tools;35.0.0'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build debug APK
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: Run unit tests and generate coverage report
+        run: ./gradlew --no-daemon unitTestCoverage
+
+      - name: Upload unit test and coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-unit-test-reports
+          path: |
+            app-android/app/build/reports/tests/testDebugUnitTest/
+            app-android/app/build/reports/jacoco/unitTestCoverage/
+            app-android/app/build/test-results/testDebugUnitTest/
+          if-no-files-found: ignore

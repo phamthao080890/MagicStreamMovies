@@ -13,6 +13,8 @@ Run `./gradlew testDebugUnitTest` from this folder. The JVM tests cover movie da
 
 Run `./gradlew unitTestCoverage` to run the tests and generate the JaCoCo line and branch coverage report at `app/build/reports/jacoco/unitTestCoverage/html/index.html`. Robolectric exercises session storage, adapters, and form validation on the JVM; it does not replace on-device integration or end-to-end testing.
 
+GitHub Actions runs the debug build and unit tests with coverage when Android files change on a push to `main` or a pull request targeting `main`. The workflow also supports manual runs and uploads the test and coverage reports as a workflow artifact.
+
 ## Structure
 
 - `data`: Retrofit API client, response models, repositories, and persisted session
